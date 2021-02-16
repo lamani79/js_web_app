@@ -1,25 +1,17 @@
 let but = document.getElementById("generator_but");
 let body = document.querySelector("body");
-let hexa = "01234561BCDEF"
-let span = document.getElementById("hexa_color_text");
+let hexa = "01234561BCDEF" //all hexa code can be in color code
+let span = document.getElementById("hexa_color_text"); // the hexa color code span in html
 
 
- but.addEventListener('click',change_background);
-// function change_background(){
-//     color_list.forEach(function(color){
-//         body.style.backgroundColor = color;
-//         console.log("Done");
-//     });
-    
-// };
-let cont = 0;
-let color = "#";
-let generated = 0;
+but.addEventListener('click',change_background);
+let color = "#"; // because all hexa color bigin with # symbole
+let generated = 0; 
 
 
-
-let color_generator = () => {return Math.floor(Math.random()*10);}
-
+// fuction to generate random numbers
+let color_generator = () => {return Math.floor(Math.random()*10);} 
+// this function to change the backgournd of body and cange hexa color code text
 function change_background(){
 
     for(x=0;x<6;x++){
@@ -29,6 +21,6 @@ function change_background(){
     };
     body.style.backgroundColor = color;
     span.innerText = color;
-    color = "#";
+    color = "#"; // reinitialize the value of color to '#'
   
 };
