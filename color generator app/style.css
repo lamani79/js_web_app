@@ -9,6 +9,9 @@ body {
   height: 100vh;
   transition: background 0.5s;
 }
+button {
+  min-height: 50px;
+}
 #generator_but {
   cursor: pointer;
   color: white;
@@ -25,3 +28,16 @@ body {
 #generator_but:focus {
   outline: none;
 }
+#copy {
+  cursor: pointer;
+  background-image: url(images/copy.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 10px;
+  margin-left: 10px;
+  min-width: 50px;
+  position: relative;
+}
+
+/*
+}*/
