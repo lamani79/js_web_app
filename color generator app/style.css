@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  color: white;
+  font-weight: bold;
 }
 body {
   display: flex;
@@ -14,14 +16,14 @@ button {
 }
 #generator_but {
   cursor: pointer;
-  color: white;
   background-color: black;
   padding: 10px;
-  font-weight: bold;
+
   border: 0px;
   border-radius: 15px;
   transition: background 0.3s;
 }
+
 #generator_but:hover {
   background-color: rgb(29, 29, 29);
 }
@@ -56,8 +58,6 @@ button {
 #overLayer_container #copied_done_message {
   text-align: center;
   font-size: xx-large;
-  font-weight: bold;
-  color: white;
 }
 
 /*
