@@ -24,74 +24,44 @@ function change_background(){
     body.style.backgroundColor = color;
     span.innerText = color;
     color = "#"; // reinitialize the value of color to '#'
-    copy_done();
+    
 
     
 
   
 };
 
-copy_but.addEventListener('click',function(){
+copy_but.addEventListener('click',copy_color);
 
-      let done = document.getElementById("done");
-    console.log(done.style)
-});
-
-
+// these function copy color that user generate
 function copy_color(){
-
+    // I maeke all these because i can't 
+    // copy thext from span 
+    // so I create a input and make value = color hexa code
+    // than copy it form the input 
+    // last think I remove the input from the window
     let text_created = document.createElement("textarea");
     text_created.value = span.textContent;
     document.body.appendChild(text_created);
     text_created.select()
     document.execCommand('copy');
     text_created.remove();
+    copy_done();
 
 };
-
-
-
-
-
+// this funciton  show message to user to 
+// tell hime that copy has done done!!
 function copy_done(){
+    let overLayer = document.getElementById("overLayer")
+    overLayer.style.zIndex = "1"
+    overLayer.style.opacity = "1";
+    // this function  make delay than remove 
+    // copied layer
+    var delayInMilliseconds = 500; //1 second
 
-    let copy_done_text = document.createElement("span");
-    copy_done_text.setAttribute("id","done");
-    let copy_done_text_style =  document.createElement("style");
-    copy_done_text.innerHTML = `
-    Copied!
+    setTimeout(function() { 
+        overLayer.style.opacity = "0";
+        overLayer.style.zIndex = "-1"
 
-    `;
-    copy_done_text_style.innerHTML = `
-    #done {
-        backgroundColor: red;
-        position: absolute;
-        content: "copied";
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        transition: opacity 0.3s, visibility 0.3s , top 0.3s;
-        top: O;
-        right: 0px;
-        width: 100%;
-        z-index: 1;
-      }
-      
-
-    `;
-    copy_but.appendChild(copy_done_text);
-     document.head.appendChild(copy_done_text_style);
-     var delayInMilliseconds = 2000; //1 second
-
-    setTimeout(function() {
-    copy_done_text.remove();
-    copy_done_text_style.remove();
     }, delayInMilliseconds);
-    
-
-    
-     
-    };
-    
-
-  
+};  
