@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        li {
+            border: 1px solid black;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+    </ul>
+    <br />
+    <br />
+    <div class="filtter">
+        <p>new filter arrat</p>
+    </div>
+</body>
+<!-- #################################################### -->
+
+<script>
+    // alphabet dictionary
+    const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    //word = bac , key = 2
+    // b = d , a = c  , c = e
+    // bac = dce
+    // new_letter = (leter + key) mod(26) 
+
+    function code(key, word) {
+        let new_word = '';
+        for (let l of word) {
+            // l = every letter in word
+            let old_index = alphabet.indexOf(l); // index of l in alphabet dictionary
+            let new_index = old_index + key; // new index;
+            if (new_index < 26) { // rule of  mode(26)
+                new_word = new_word + alphabet[new_index]; // creat letters of new_word
+            } else { // rule of mode(26)
+                new_word = new_word + alphabet[new_index % 26];
+            };
+
+        };
+        return new_word;
+    };
+
+    function incode(key, word) { //a
+        incoding_word = '';
+        for (l of word) {
+            // l = every letter in word
+
+            let old_index = alphabet.indexOf(l) // index of l in alphabet dictionary
+            let new_index = old_index - key // new index 
+            if (new_index >= key) { // rule mode 26
+                incoding_word += alphabet[new_index];
+            } else { // rule of mode 26
+                incoding_word += alphabet[26 - (old_index + key)]; //test it
+
+            };
+
+
+        };
+        return incoding_word;
+    };
+
+    //alert(code(key = 26, word = 'bac'));
+    alert(incode(key = 1, word = 'abcdefghijklmnopqursuvwxyz'));
+</script>
+
+</html>
